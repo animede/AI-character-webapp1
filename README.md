@@ -23,7 +23,7 @@ source web/bin/activate
 
 cd  AI-character-webapp1
 
-pip install requirements.txt
+pip install -r requirements.txt
 
 
 バックエンドを起動する
