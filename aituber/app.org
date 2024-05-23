@@ -1,0 +1,58 @@
+<template>
+  <div class="m-5">
+    <input v-model="searchText" type="text" class="form-control" placeholder="ファイル名を入力...">
+    <button @click="fetchImage" class="btn btn-primary mt-3">検索</button>
+
+    <div v-if="imageUrl" class="mt-5">
+      <img :src="imageUrl" alt="検索結果の画像" class="img-fluid">
+    </div>
+  </div>
+  <div>
+    <NuxtWelcome />
+  </div>
+</template>
+
+
+
+<script>
+import { ref } from 'vue';
+
+export default {
+  setup() {
+    const searchText = ref('');
+    const imageUrl = ref('');
+
+    const fetchImage = async () => {
+      if (!searchText.value) return;
+      console.log(searchText.value)
+      try {
+        const blob = await $fetch(`http://localhost:8000/api/image`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json',},
+        body: {
+          "filename": searchText.value
+        }
+    });
+  // $fetchが成功した場合、レスポンスのデータがblobに含まれます
+  imageUrl.value = URL.createObjectURL(blob);
+} catch (error) {
+  // エラーハンドリング
+  console.error('画像の取得に失敗しました。', error);
+  // 必要に応じてエラーに関する追加の処理を行う
+}
+    };
+
+    return { searchText, imageUrl, fetchImage };
+  }
+}
+</script>
+
+// const imageUrl = ref('');
+
+// const fetchImage = async () => {
+  //   const response = await fetch('画像のURL');
+  //   const blob = await response.blob(); // レスポンスをBlobとして取得
+
+  //   imageUrl.value = URL.createObjectURL(blob); // BlobからURLを生成し、Vueのリアクティブなプロパティに設定
+  // };
+

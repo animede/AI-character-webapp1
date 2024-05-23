@@ -1,0 +1,60 @@
+Step1
+
+バックエンド
+source web/bin/activate
+cd AI-character-webapp1/fastapi
+python app.py
+
+
+フォロント
+source web/bin/activate
+cd AI-character-webapp1/aituber
+npm run dev
+
+ストリーミング
+source web/bin/activate
+cd AI-character-webapp1/streaming
+python app.py
+
+
+Step 2
+
+VOICEVOX
+source vb/bin/activate
+cd vb/voicevox_core
+python vox_api_server.py
+
+LLMサーバ
+source ./llm/bin/activate
+cd AI-character-webapp1/llm
+python atb_ai_api_gguf.py
+
+Speah-to-Teaxt 音声認識   動かし方 
+source tts/bin/activate
+cd speech-to-text
+python main.py
+
+**** 高度な使い方　****
+thh_全機能の動かし方.txtを参照してください。
+更に以下のLLMサーバが必要です。
+外部AIサーバ側
+Diffusers
+alma
+atb-ai
+Llava
+
+
+
+******************プロセス確認　*****************
+マルチプロセスを使うと異常終了をさせるとプロセスが残ってしまうことがあります。
+以下で、確認とプロセスの停止を行ってください。
+
+ps -fu
+kill xxxxx
+
+ポート専有プロセスを調べる
+sudo ss -tulnp
+
+強力なkill　SIGKILLシグナル（シグナル番号9）を送る
+kill -9 23463
+

@@ -1,0 +1,15 @@
+Nuxt3とBootstrap5を使うフロントで、テキストを入力してボタンを押すとFastAPIのバックエンドと通信して関連画像を取得してブラウザーで表示させるコード
+
+現在のapp.vueは以下の通りです
+
+
+<template>
+  <div class="m-5">
+  	<div class="btn btn-success">Success</div>
+  </div>
+  <div>
+    <NuxtWelcome />
+  </div>
+</template>
+
+scriptとHTMLは分けて記述すること。SCSSはassets/scssフォルダーにあり、ファイル名はapp.scssです。
