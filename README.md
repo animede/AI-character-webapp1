@@ -9,7 +9,10 @@
 　ウエイトをHugginhFaceからダウンロードし所定のホルダに移動
 
  https://huggingface.co/UZUKI/webapp1
- 
+
+isnetis.ckpt -> AI-character-webapp1/fastapi
+
+ssd_best8.pth -> AI-character-webapp1/fastapi/weights
 
 
 ２）Webアプリ環境作成
