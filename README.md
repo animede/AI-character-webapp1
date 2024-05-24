@@ -3,7 +3,7 @@
 稼働環境　Ubuntu22.04/CUDA 12.3
 
 
-１）準備
+##１）準備
 
 　リポジトリをクローン
 　git clone https://github.com/animede/AI-character-webapp1.git
