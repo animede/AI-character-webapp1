@@ -196,9 +196,9 @@
 
 　binary=download-linux-x64
  
-　sudo snap install curl   ***上記でエラー、 必要ならば
-
 　curl -sSfL https://github.com/VOICEVOX/voicevox_core/releases/latest/download/${binary} -o download
+
+　　　sudo snap install curl   　　***上記でエラー、 必要ならば
 
 　chmod +x download
 
