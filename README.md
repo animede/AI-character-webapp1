@@ -172,13 +172,26 @@
  
 　conda activate llm
 
+　pip install fastapi
+
  
 　GPUで動かす
 
 　CMAKE_ARGS="-DLLAMA_CUDA=on"
 
 　pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir
+
+　cd AI-charcter-webapp1/llm
+
+　python atb_ai_api_gguf.py
+
+　2回目以降
  
+　conda activate llm
+ 
+　cd AI-charcter-webapp1/llm
+
+　python atb_ai_api_gguf.py
 
 
 
