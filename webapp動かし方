@@ -5,16 +5,15 @@ source web/bin/activate
 cd AI-character-webapp1/fastapi
 python app.py
 
-
-フォロント
-source web/bin/activate
-cd AI-character-webapp1/aituber
-npm run dev
-
 ストリーミング
 source web/bin/activate
 cd AI-character-webapp1/streaming
 python app.py
+
+フォロント
+source nuxt/bin/activate
+cd webapp1
+npm run dev
 
 
 Step 2
@@ -25,8 +24,9 @@ cd vb/voicevox_core
 python vox_api_server.py
 
 LLMサーバ
-source ./llm/bin/activate
-cd AI-character-webapp1/llm
+
+conda activate llm
+cd AI-charcter-webapp1/llm
 python atb_ai_api_gguf.py
 
 Speah-to-Teaxt 音声認識   動かし方 
