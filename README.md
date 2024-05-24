@@ -3,60 +3,61 @@
 
 　リポジトリをクローン
 
- git clone https://github.com/animede/AI-character-webapp1.git
+  git clone https://github.com/animede/AI-character-webapp1.git
  
  
 　ウエイトをHugginhFaceからダウンロードし所定のホルダに移動
 
- https://huggingface.co/UZUKI/webapp1
+  https://huggingface.co/UZUKI/webapp1
 
-isnetis.ckpt -> AI-character-webapp1/fastapi
+  isnetis.ckpt -> AI-character-webapp1/fastapi
 
-ssd_best8.pth -> AI-character-webapp1/fastapi/weights
+  ssd_best8.pth -> AI-character-webapp1/fastapi/weights
+
 
 
 ２）Webアプリ環境作成
 
-python3.11とgitのインストール
+  python3.11とgitのインストール
 
-ターミナルを開く
+  ターミナルを開く
 
-sudo apt install git
+  sudo apt install git
 
-sudo apt install -y python3.11 python3.11-venv
+  sudo apt install -y python3.11 python3.11-venv
 
-python3.11 -m venv web
+  python3.11 -m venv web
 
-source web/bin/activate
+  source web/bin/activate
 
-cd  AI-character-webapp1
+  cd  AI-character-webapp1
 
-pip install -r requirements.txt
-
-
-バックエンドを起動する
-
-ターミナルを開く
-
-source web/bin/activate
-
-cd AI-character-webapp1/fastapi
-
-python app.py
+  pip install -r requirements.txt
 
 
-ストリーミングを起動
+３）バックエンドを起動する
 
-新たにターミナルを開く
+  ターミナルを開く
 
-source web/bin/activate
+  source web/bin/activate
 
-cd AI-character-webapp1/streaming
+  cd AI-character-webapp1/fastapi
 
-python app.py
+  python app.py
 
 
+４）ストリーミングを起動
 
+  新たにターミナルを開く
+
+  source web/bin/activate
+
+  cd AI-character-webapp1/streaming
+
+  python app.py
+
+
+５）
 フロントエンド　Nuxtを起動
 
 ターミナルを開く
