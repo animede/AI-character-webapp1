@@ -26,6 +26,8 @@
 
   sudo apt install -y python3.11 python3.11-venv
 
+  環境構築(web）
+
   python3.11 -m venv web
 
   source web/bin/activate
@@ -33,6 +35,7 @@
   cd  AI-character-webapp1
 
   pip install -r requirements.txt
+  
 
 
 ３）バックエンドを起動する
@@ -44,6 +47,7 @@
   cd AI-character-webapp1/fastapi
 
   python app.py
+  
 
 
 ４）ストリーミングを起動
@@ -57,22 +61,63 @@
   python app.py
 
 
-５）
-フロントエンド　Nuxtを起動
+５）フロントエンド環境構築
 
 ターミナルを開く
 
-source web/bin/activate
+python3.11 -m venv nuxt
 
-cd AI-character-webapp1/aituber
+source nuxt/bin/activate
 
-node .output/server/index.mjs
+nodeのバージョンを確認
+
+node -v  18以上ならok、無い、または17以下だと再インストール
+
+npm -v 
+
+再インストール
+
+
+
+
+nuxtプロジェクト作成
+
+mpx nuxi@altest init webapp1
+
+cd webapp1
+
+npm i
+
+npm run dev 確認
+
+ファイルをコピ-
+
+
+６）フロントエンド　Nuxtを起動
+
+npm run dev 
+
+
+６−１）２回目以降のフロントエンド起動
+
+ターミナルを開く
+
+source nuxt/bin/activate
+
+cd webapp1
+
+npm run dev 
+
 
 ブラウザーから
 
-http://[::]:3000
+http://localhost:3000
 
-にアクセス
+にアクセス -> FireFoxは起動してキャラは動くが問題もある
+
+Chrome をインストール
+
+Chrome から　http://localhost:3000　をアクセス
 
 
 
