@@ -95,10 +95,18 @@ AIキャラクタアプリ　Step1〜３
 　環境構築
 　conda create -n llm
 　conda activate llm
+　pip install fastapi
 
 　GPUで動かす
 　CMAKE_ARGS="-DLLAMA_CUDA=on"
 　pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir
+　cd AI-charcter-webapp1/llm
+　python atb_ai_api_gguf.py
+
+　2回目以降
+　conda activate llm
+　cd AI-charcter-webapp1/llm
+　python atb_ai_api_gguf.py
 
 ４） VOICEVOX環境
 　python3 -m venv vb
@@ -107,8 +115,8 @@ AIキャラクタアプリ　Step1〜３
 　git clone https://github.com/VOICEVOX/voicevox_core.git
 　pip install -r requirements.txt
 　binary=download-linux-x64
-　sudo snap install curl ***上記でエラー、 必要ならば
 　curl -sSfL https://github.com/VOICEVOX/voicevox_core/releases/latest/download/${binary} -o download
+　　sudo snap install curl ***上記でエラー、 必要ならば
 　chmod +x download
 　./download --device cuda
 
@@ -122,8 +130,7 @@ AIキャラクタアプリ　Step1〜３
 
 　VOICEVOXサーバを起動
 　python vox_api_server.py
-
-　-> error: libcudart.so.11.0: cannot open shared object file: No such file or directory
-　libcudart.so.11.0をHuggingFace UZUKI/webapp1 からvoicevox_coreへコピー
+　　　-> error: libcudart.so.11.0: cannot open shared object file: No such file or directory
+　　　libcudart.so.11.0をHuggingFace UZUKI/webapp1 からvoicevox_coreへコピー
 　python vox_api_server.py
 　
