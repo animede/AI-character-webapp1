@@ -3,10 +3,13 @@
 
 　リポジトリをクローン
 
- git clone 
+ git clone https://github.com/animede/AI-character-webapp1.git
+ 
  
 　ウエイトをHugginhFaceからダウンロードし所定のホルダに移動
 
+ https://huggingface.co/UZUKI/webapp1
+ 
 
 
 ２）Webアプリ環境作成
