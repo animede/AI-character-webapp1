@@ -72,6 +72,7 @@
 　node -v  　　18以上ならok、無い、または17以下だと再インストール
 
 　npm -v 
+ 
 
 　インストール
  
@@ -81,6 +82,13 @@
  
 
 　再インストール
+ 
+　sudo npm cache clean
+ 
+　sudo npm install -g n
+ 
+　sudo n stable
+ 
  
 　削除
  
@@ -148,51 +156,78 @@
 
 ３）LLM環境
 
-tbd
+　llama-cpp-python
+
+　mkdir -p ~/miniconda3
+ 
+　wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+ 
+　bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+ 
+　rm -rf ~/miniconda3/miniconda.sh
+
+　環境構築
+ 
+　conda create -n llm
+ 
+　conda activate llm
+
+ 
+　GPUで動かす
+
+　CMAKE_ARGS="-DLLAMA_CUDA=on"
+
+　pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir
+ 
 
 
 
 ４） VOICEVOX環境
 
-python3 -m venv  vb
+　python3 -m venv  vb
 
-source vb/bin/activate
+　source vb/bin/activate
 
-cd vb
+　cd vb
 
-git clone https://github.com/VOICEVOX/voicevox_core.git
+　git clone https://github.com/VOICEVOX/voicevox_core.git
 
-pip install -r requirements.txt
+　pip install -r requirements.txt
 
-binary=download-linux-x64
+　binary=download-linux-x64
  
-sudo snap install curl   ***上記でエラー、 必要ならば
+　sudo snap install curl   ***上記でエラー、 必要ならば
 
-curl -sSfL https://github.com/VOICEVOX/voicevox_core/releases/latest/download/${binary} -o download
+　curl -sSfL https://github.com/VOICEVOX/voicevox_core/releases/latest/download/${binary} -o download
 
-chmod +x download
+　chmod +x download
 
-./download --device cuda
+　./download --device cuda
 
-pip install https://github.com/VOICEVOX/voicevox_core/releases/download/0.14.4/voicevox_core-0.14.4+cpu-cp38-abi3-linux_x86_64.whl
+　pip install https://github.com/VOICEVOX/voicevox_core/releases/download/0.14.4/voicevox_core-0.14.4+cpu-cp38-abi3-linux_x86_64.whl
 
-binary=download-linux-x64
+　binary=download-linux-x64
 
-curl -sSfL https://github.com/VOICEVOX/voicevox_core/releases/latest/download/${binary} -o download
+　curl -sSfL https://github.com/VOICEVOX/voicevox_core/releases/latest/download/${binary} -o download
 
-chmod +x download
+　chmod +x download
 
-./download -o ./example/python
+　./download -o ./example/python
 
-cd voicevox_core
+　cd voicevox_core
 
-python vox_api_server.py
+　python vox_api_server.py
 
--> error: libcudart.so.11.0: cannot open shared object file: No such file or directory
+　-> error: libcudart.so.11.0: cannot open shared object file: No such file or directory
 
-libcudart.so.11.0をHuggingFace UZUKI/webapp1 からvoicevox_coreへコピー
+　libcudart.so.11.0をHuggingFace UZUKI/webapp1 からvoicevox_coreへコピー
 
-python vox_api_server.py
+　python vox_api_server.py
+
+
+
+  　
+
 
 
 
