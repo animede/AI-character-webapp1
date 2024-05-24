@@ -2,122 +2,147 @@
 １）準備
 
 　リポジトリをクローン
+　git clone https://github.com/animede/AI-character-webapp1.git
 
-  git clone https://github.com/animede/AI-character-webapp1.git
- 
- 
 　ウエイトをHugginhFaceからダウンロードし所定のホルダに移動
+ 
+　https://huggingface.co/UZUKI/webapp1
 
-  https://huggingface.co/UZUKI/webapp1
-
-  isnetis.ckpt -> AI-character-webapp1/fastapi
-
-  ssd_best8.pth -> AI-character-webapp1/fastapi/weights
-
-
+　isnetis.ckpt -> AI-character-webapp1/fastapi
+ 
+　ssd_best8.pth -> AI-character-webapp1/fastapi/weights
+ 
+　libcudart.so.11.0　はVOICEVOXでエラーのとき使用
 
 ２）Webアプリ環境作成
 
-  python3.11とgitのインストール　（必要なら）
+　python3.11とgitのインストール　（必要なら）
 
-  ターミナルを開く
+　ターミナルを開く
 
-  sudo apt install git
+　sudo apt install git
 
-  sudo apt install -y python3.11 python3.11-venv
+　sudo apt install -y python3.11 python3.11-venv
 
-  環境構築(web）
+　環境構築(web）
 
-  python3.11 -m venv web
+　python3.11 -m venv web
 
-  source web/bin/activate
+　source web/bin/activate
 
-  cd  AI-character-webapp1
+　cd  AI-character-webapp1
 
-  pip install -r requirements.txt
-  
+　pip install -r requirements.txt
 
 
 ３）バックエンドを起動する
 
-  ターミナルを開く
+　ターミナルを開く
 
-  source web/bin/activate
+　source web/bin/activate
 
-  cd AI-character-webapp1/fastapi
+　cd AI-character-webapp1/fastapi
 
-  python app.py
-  
+　python app.py
+
 
 
 ４）ストリーミングを起動
 
-  新たにターミナルを開く
+　新たにターミナルを開く
 
-  source web/bin/activate
+　source web/bin/activate
 
-  cd AI-character-webapp1/streaming
+　cd AI-character-webapp1/streaming
 
-  python app.py
+　python app.py
+ 
 
-
+ 
 ５）フロントエンド環境構築
 
-ターミナルを開く
+　ターミナルを開く
 
-python3.11 -m venv nuxt
+　python3.11 -m venv nuxt
 
-source nuxt/bin/activate
+　source nuxt/bin/activate
 
-nodeのバージョンを確認
+　nodeのバージョンを確認
 
-node -v  18以上ならok、無い、または17以下だと再インストール
+　node -v  　　18以上ならok、無い、または17以下だと再インストール
 
-npm -v 
+　npm -v 
 
-再インストール
+　インストール
+ 
+　sudo apt-get install -y nodejs
+ 
+　sudo apt install npm
+ 
+
+　再インストール
+ 
+　削除
+ 
+　sudo apt purge --autoremove nodejs npm
+ 
+　sudo apt install nodejs npm
+ 
+　sudo npm install n -g
+ 
 
 
 
+　nuxtプロジェクト作成
 
-nuxtプロジェクト作成
+　mpx nuxi@altest init webapp1
 
-mpx nuxi@altest init webapp1
+　cd webapp1
 
-cd webapp1
+　npm i
 
-npm i
+　npm i bootstrap-icons-vue bootstrap
+ 
+　npm i bootstrap-icons
 
-npm run dev 確認
+　npm run dev 確認
+ 
 
-ファイルをコピ-
+　ファイルをコピ-　AI-character-webapp1/aituber　から　webapp1
 
+　package.json
+
+　nuxt.config.ts
+
+　app.vue
+ 
+　static　ホルダー
 
 ６）フロントエンド　Nuxtを起動
 
-npm run dev 
+　npm run dev 
 
 
 ６−１）２回目以降のフロントエンド起動
 
-ターミナルを開く
+　ターミナルを開く
 
-source nuxt/bin/activate
+　source nuxt/bin/activate
 
-cd webapp1
+　cd webapp1
 
-npm run dev 
+　npm run dev 
 
 
-ブラウザーから
+　ブラウザーからアクセスして起動
 
-http://localhost:3000
+　http://localhost:3000
 
-にアクセス -> FireFoxは起動してキャラは動くが問題もある
+　ー> FireFoxは起動してキャラは動くが問題もある
 
-Chrome をインストール
+　Chrome をインストール
 
-Chrome から　http://localhost:3000　をアクセス
+　Chrome から　http://localhost:3000　をアクセス
 
 
 
@@ -129,7 +154,45 @@ tbd
 
 ４） VOICEVOX環境
 
-tbd
+python3 -m venv  vb
+
+source vb/bin/activate
+
+cd vb
+
+git clone https://github.com/VOICEVOX/voicevox_core.git
+
+pip install -r requirements.txt
+
+binary=download-linux-x64
+ 
+sudo snap install curl   ***上記でエラー、 必要ならば
+
+curl -sSfL https://github.com/VOICEVOX/voicevox_core/releases/latest/download/${binary} -o download
+
+chmod +x download
+
+./download --device cuda
+
+pip install https://github.com/VOICEVOX/voicevox_core/releases/download/0.14.4/voicevox_core-0.14.4+cpu-cp38-abi3-linux_x86_64.whl
+
+binary=download-linux-x64
+
+curl -sSfL https://github.com/VOICEVOX/voicevox_core/releases/latest/download/${binary} -o download
+
+chmod +x download
+
+./download -o ./example/python
+
+cd voicevox_core
+
+python vox_api_server.py
+
+-> error: libcudart.so.11.0: cannot open shared object file: No such file or directory
+
+libcudart.so.11.0をHuggingFace UZUKI/webapp1 からvoicevox_coreへコピー
+
+python vox_api_server.py
 
 
 
