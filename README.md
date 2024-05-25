@@ -3,7 +3,7 @@
 稼働環境　Ubuntu22.04/CUDA 12.3
 
 
-##１）準備
+## １）準備
 
 　リポジトリをクローン
 　git clone https://github.com/animede/AI-character-webapp1.git
@@ -18,7 +18,7 @@
  
 　libcudart.so.11.0　はVOICEVOXでエラーのとき使用
 
-２）Webアプリ環境作成
+## ２）Webアプリ環境作成
 
 　python3.11とgitのインストール　（必要なら）
 
@@ -28,7 +28,7 @@
 
 　sudo apt install -y python3.11 python3.11-venv
 
-　環境構築(web）
+###   環境構築(web）
 
 　python3.11 -m venv web
 
@@ -39,7 +39,7 @@
 　pip install -r requirements.txt
 
 
-３）バックエンドを起動する
+## ３）バックエンドを起動する
 
 　ターミナルを開く
 
@@ -51,7 +51,7 @@
 
 
 
-４）ストリーミングを起動
+### ストリーミングを起動
 
 　新たにターミナルを開く
 
@@ -63,7 +63,7 @@
  
 
  
-５）フロントエンド環境構築
+### フロントエンド環境構築
 
 　ターミナルを開く
 
@@ -71,21 +71,21 @@
 
 　source nuxt/bin/activate
 
-　nodeのバージョンを確認
+#### nodeのバージョンを確認
 
 　node -v  　　18以上ならok、無い、または17以下だと再インストール
 
 　npm -v 
  
 
-　インストール
+#### インストール
  
 　sudo apt-get install -y nodejs
  
 　sudo apt install npm
  
 
-　再インストール
+#### 再インストール
  
 　sudo npm cache clean
  
@@ -94,7 +94,7 @@
 　sudo n stable
  
  
-　削除
+#### 削除
  
 　sudo apt purge --autoremove nodejs npm
  
@@ -105,7 +105,7 @@
 
 
 
-　nuxtプロジェクト作成
+#### nuxtプロジェクト作成
 
 　mpx nuxi@altest init webapp1
 
@@ -120,7 +120,7 @@
 　npm run dev 確認
  
 
-　ファイルをコピ-　AI-character-webapp1/aituber　から　webapp1
+#### ファイルをコピ-　AI-character-webapp1/aituber　から　webapp1
 
 　package.json
 
@@ -130,12 +130,12 @@
  
 　static　ホルダー
 
-６）フロントエンド　Nuxtを起動
+### フロントエンド　Nuxtを起動
 
 　npm run dev 
 
 
-６−１）２回目以降のフロントエンド起動
+### 2回目以降のフロントエンド起動
 
 　ターミナルを開く
 
@@ -146,19 +146,19 @@
 　npm run dev 
 
 
-　ブラウザーからアクセスして起動
+### ブラウザーからアクセスして起動
 
 　http://localhost:3000
 
 　ー> FireFoxは起動してキャラは動くが問題もある
 
-　Chrome をインストール
+#### Chrome をインストール
 
 　Chrome から　http://localhost:3000　をアクセス
 
 
 
-３）LLM環境
+## 4）LLM環境
 
 　llama-cpp-python
 
@@ -170,7 +170,7 @@
  
 　rm -rf ~/miniconda3/miniconda.sh
 
-　環境構築
+### 環境構築
  
 　conda create -n llm
  
@@ -179,7 +179,7 @@
 　pip install fastapi
 
  
-　GPUで動かす
+### GPUで動かす
 
 　CMAKE_ARGS="-DLLAMA_CUDA=on"
 
@@ -189,7 +189,7 @@
 
 　python atb_ai_api_gguf.py
 
-　2回目以降
+### 2回目以降
  
 　conda activate llm
  
@@ -199,14 +199,15 @@
 
 
 
-４） VOICEVOX環境
+## 5) VOICEVOX環境
+### 環境作成
 
 　python3 -m venv  vb
 
 　source vb/bin/activate
 
 　cd vb
-
+### リポジトリクローン
 　git clone https://github.com/VOICEVOX/voicevox_core.git
 
 　pip install -r requirements.txt
@@ -247,7 +248,7 @@
 
 
 
-
+## クレジットなど
 このソフトウエアは以下のソフトウエアが含まれています。
 
 https://github.com/SkyTNT/anime-segmentation
