@@ -244,7 +244,43 @@
 
 
 
-  　
+## Speech-to-Text（w/Faster Whisper）　音声認識  
+
+VRAMは16Gbyte以上をおすすめします。
+
+音声入力を使う時に必要です。
+
+ソースコード入手先
+
+reriiasu/speech-to-text: Real-time transcription using faster-whisper (github.com) 
+
+git clone https://github.com/reriiasu/speech-to-text.git
+
+こちらもREADMEに環境構築方法が記載されています。
+
+### 仮想環境を作成
+
+python3 -m venv  tts
+
+source tts/bin/activate
+
+cd tts
+
+AI-charcter-webapp1/speach-to-textからrequirements.txt をコピー
+
+pip install -r requirements.txt
+
+### 環境構築
+
+git clone https://github.com/reriiasu/speech-to-text.git
+
+cd speech-to-text
+
+pip install .
+
+### 起動
+
+python main.py
 
 
 
